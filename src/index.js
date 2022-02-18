@@ -8,7 +8,6 @@ import {
   loginDisplay,
   cartItemChange,
   buttonHighlight,
-  userCatch,
   routeChange,
   addItemsToUsers,
 } from "./Containers/reducers";
@@ -22,7 +21,6 @@ const reducer = combineReducers({
   cartItemChange,
   buttonHighlight,
   loginDisplay,
-  userCatch,
   routeChange,
   addItemsToUsers,
 });

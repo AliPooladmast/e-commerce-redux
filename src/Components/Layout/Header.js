@@ -12,7 +12,7 @@ import PersonalPageButton from "./PersonalPageButton";
 import HomePageButton from "./HomePageButton";
 
 const mapStateToProps = (state) => ({
-  currentUser: state.userCatch.currentUser,
+  currentUser: state.addItemsToUsers.currentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({});

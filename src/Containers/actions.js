@@ -6,6 +6,7 @@ import { IS_LOGIN_SHOWN } from "./constants";
 import { ADD_CURRENT_USER } from "./constants";
 import { CHANGE_ROUTE } from "./constants";
 import { ADD_USER_ITEM } from "./constants";
+import { REMOVE_FROM_CART_ALL } from "./constants";
 
 export const setAddUserItem = (event) => ({
   type: ADD_USER_ITEM,
@@ -45,4 +46,8 @@ export const setAddCart = (item) => ({
 export const setRemoveCart = (item) => ({
   type: REMOVE_FROM_CART,
   payload: item,
+});
+
+export const setRemoveCartAll = () => ({
+  type: REMOVE_FROM_CART_ALL,
 });

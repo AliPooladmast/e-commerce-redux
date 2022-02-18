@@ -7,27 +7,59 @@ import { DUMMY_MEALS } from "./constants";
 import { CHANGE_ROUTE } from "./constants";
 import { ADD_CURRENT_USER } from "./constants";
 import { ADD_USER_ITEM } from "./constants";
+import { REMOVE_FROM_CART_ALL } from "./constants";
 
 const initUsers = {
   users: [
-    { email: "pokemon4ever72@gmail.com", pass: "pokemon4ever" },
-    { email: "Caraqu@gmail.com", pass: "a123789654" },
-    { email: "bahogbelat@gmail.com", pass: "iyot14398" },
-    { email: "updateios27@gmail.com", pass: "rosie124" },
-    { email: "cmonster@gmail.com", pass: "554533" },
+    {
+      id: "user1",
+      email: "pokemon4ever72@gmail.com",
+      pass: "pokemon4ever",
+      ordered: [],
+    },
+    { id: "user2", email: "Caraqu@gmail.com", pass: "a123789654", ordered: [] },
+    {
+      id: "user3",
+      email: "bahogbelat@gmail.com",
+      pass: "iyot14398",
+      ordered: [],
+    },
+    {
+      id: "user4",
+      email: "updateios27@gmail.com",
+      pass: "rosie124",
+      ordered: [],
+    },
+    { id: "user5", email: "cmonster@gmail.com", pass: "554533", ordered: [] },
   ],
+  currentUser: "",
 };
 
 export const addItemsToUsers = (state = initUsers, action = {}) => {
-  const { users } = state;
+  const { users, currentUser } = state;
 
   switch (action.type) {
+    case ADD_CURRENT_USER:
+      return { ...state, currentUser: action.payload };
+
     case ADD_USER_ITEM: {
-      let updatedItems;
-      updatedItems = users.concat(action.payload);
+      const { items, dateTime } = action.payload;
+      console.log(dateTime);
+      let userIndex = users.findIndex(
+        (user) => user.email === currentUser.email
+      );
+      let newCurrentUser = users[userIndex];
+      let updatedItems = [...newCurrentUser.ordered, ...items];
+      let updatedUser = {
+        ...newCurrentUser,
+        ordered: updatedItems,
+        dateTime,
+      };
+      users[userIndex] = updatedUser;
+
       return {
         ...state,
-        items: updatedItems,
+        users: users,
       };
     }
 
@@ -44,19 +76,6 @@ export const routeChange = (state = initStateRoute, action = {}) => {
   switch (action.type) {
     case CHANGE_ROUTE:
       return { ...state, route: action.payload };
-    default:
-      return state;
-  }
-};
-
-const initStateCurrentUser = {
-  currentUser: "",
-};
-
-export const userCatch = (state = initStateCurrentUser, action = {}) => {
-  switch (action.type) {
-    case ADD_CURRENT_USER:
-      return { ...state, currentUser: action.payload };
     default:
       return state;
   }
@@ -164,6 +183,14 @@ export const cartItemChange = (state = initStateItems, action = {}) => {
         ...state,
         items: updatedItems,
         totalPrice: updatedTotalPrice,
+      };
+    }
+
+    case REMOVE_FROM_CART_ALL: {
+      return {
+        ...state,
+        items: [],
+        totalPrice: 0,
       };
     }
 

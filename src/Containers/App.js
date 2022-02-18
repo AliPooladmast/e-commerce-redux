@@ -4,6 +4,7 @@ import Header from "../Components/Layout/Header";
 import Meals from "../Components/Meals/Meals";
 import Cart from "../Components/Cart/Cart";
 import SignIn from "../Components/Cart/SignIn";
+import AvailableUsers from "../Components/Meals/MealsChildren/AvailableUsers";
 
 const mapStateToProps = (state) => ({
   IsCartShown: state.cartDisplay.IsCartShown,
@@ -20,7 +21,7 @@ function App(props) {
       {IsCartShown && <Cart />}
       {IsLoginShown && <SignIn />}
       <Header />
-      <main>{route === "personal" ? <div></div> : <Meals />}</main>
+      <main>{route === "personal" ? <AvailableUsers /> : <Meals />}</main>
     </Fragment>
   );
 }

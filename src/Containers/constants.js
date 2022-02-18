@@ -6,6 +6,7 @@ export const IS_BUTTON_HIGHLIGHTED = "IS_BUTTON_HIGHLIGHTED";
 export const ADD_CURRENT_USER = "ADD_CURRENT_USER";
 export const CHANGE_ROUTE = "CHANGE_ROUTE";
 export const ADD_USER_ITEM = "ADD_USER_ITEM";
+export const REMOVE_FROM_CART_ALL = "REMOVE_FROM_CART_ALL";
 
 export const DUMMY_MEALS = [
   {
@@ -32,12 +33,4 @@ export const DUMMY_MEALS = [
     description: "فروشگاه برند",
     price: 4320000,
   },
-];
-
-export const DUMMY_EMAILS = [
-  { email: "pokemon4ever72@gmail.com", pass: "pokemon4ever" },
-  { email: "Caraqu@gmail.com", pass: "a123789654" },
-  { email: "bahogbelat@gmail.com", pass: "iyot14398" },
-  { email: "updateios27@gmail.com", pass: "rosie124" },
-  { email: "cmonster@gmail.com", pass: "554533" },
 ];

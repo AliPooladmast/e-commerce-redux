@@ -6,13 +6,12 @@ import { setIsLoginShown } from "../../Containers/actions";
 import { setAddCart } from "../../Containers/actions";
 import { setRemoveCart } from "../../Containers/actions";
 import { setCurrentUser } from "../../Containers/actions";
-import { setAddUserItem } from "../../Containers/actions";
 import classes from "../../Styles/Cart.module.css";
 
 const mapStateToProps = (state) => ({
   items: state.cartItemChange.items,
   totalPrice: state.cartItemChange.totalPrice,
-  currentUser: state.userCatch.currentUser,
+  currentUser: state.addItemsToUsers.currentUser,
   users: state.addItemsToUsers.users,
 });
 
@@ -22,7 +21,6 @@ const mapDispatchToProps = (dispatch) => ({
   onAddCart: (item) => dispatch(setAddCart(item)),
   onRemoveCart: (item) => dispatch(setRemoveCart(item)),
   onGetUser: (item) => dispatch(setCurrentUser(item)),
-  onAddItemsToUsers: (item) => dispatch(setAddUserItem(item)),
 });
 
 const SignIn = (props) => {

@@ -5,20 +5,34 @@ import { connect } from "react-redux";
 import { setIsCartShown } from "../../Containers/actions";
 import { setAddCart } from "../../Containers/actions";
 import { setRemoveCart } from "../../Containers/actions";
+import { setAddUserItem } from "../../Containers/actions";
+import { setRemoveCartAll } from "../../Containers/actions";
 
 const mapStateToProps = (state) => ({
   items: state.cartItemChange.items,
   totalPrice: state.cartItemChange.totalPrice,
+  currentUser: state.addItemsToUsers.currentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onCloseCart: () => dispatch(setIsCartShown(false)),
   onAddCart: (item) => dispatch(setAddCart(item)),
   onRemoveCart: (item) => dispatch(setRemoveCart(item)),
+  onRemoveCartAll: () => dispatch(setRemoveCartAll()),
+  onAddItemsToUsers: (item) => dispatch(setAddUserItem(item)),
 });
 
 const Cart = (props) => {
-  const { onCloseCart, items, totalPrice, onAddCart, onRemoveCart } = props;
+  const {
+    onCloseCart,
+    items,
+    totalPrice,
+    onAddCart,
+    onRemoveCart,
+    onRemoveCartAll,
+    onAddItemsToUsers,
+    currentUser,
+  } = props;
 
   const onAddToCart = (event) => {
     const idTag = event.target.id;
@@ -40,7 +54,19 @@ const Cart = (props) => {
   ));
   const totalPriceNumber = `تومان ${totalPrice.toFixed(0)}`;
 
-  const onButton = () => {
+  const onOrder = () => {
+    let today = new Date();
+    let date =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1) +
+      "-" +
+      today.getDate();
+    let time =
+      today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    let dateTime = date + " " + time;
+    onAddItemsToUsers({ items, currentUser, dateTime });
+    onRemoveCartAll();
     alert("پرداخت انجام شد");
     onCloseCart();
   };
@@ -55,7 +81,7 @@ const Cart = (props) => {
         <button className={classes["button--alt"]} onClick={onCloseCart}>
           بستن
         </button>
-        <button onClick={onButton}>پرداخت</button>
+        <button onClick={onOrder}>پرداخت</button>
       </div>
     </Modal>
   );
