@@ -1,13 +1,14 @@
 .meals {
   width: 90%;
   animation: meals-appear 1s ease-out forwards;
-  margin: 5rem auto;
+  margin: 2rem auto;
 }
 
 .meals ul {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
   grid-gap: 50px;
+
+  justify-items: center;
   list-style: none;
   padding: 0;
 }

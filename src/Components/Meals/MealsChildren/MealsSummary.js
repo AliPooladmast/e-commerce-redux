@@ -13,7 +13,7 @@ const MealsSummary = (props) => {
   return (
     <section className={classes.summary}>
       <h2>خوش آمدید</h2>
-      <p>{"currentUser.email"}</p>
+      <p>{currentUser.email}</p>
       <p>سایت سفارش آنلاین آماده خدمت گذاری به سراسر ایران</p>
     </section>
   );

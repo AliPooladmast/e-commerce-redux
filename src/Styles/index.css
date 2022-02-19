@@ -11,4 +11,9 @@ html {
 body {
   margin: 0;
   background-color: #635858;
+  font-family: B-Nazanin;
+}
+@font-face {
+  font-family: "B-Nazanin";
+  src: local("B-Nazanin"), url(../fonts/B-Nazanin.ttf) format("truetype");
 }

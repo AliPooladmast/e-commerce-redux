@@ -14,6 +14,7 @@ import {
 import "./Styles/index.css";
 import App from "./Containers/App";
 import reportWebVitals from "./reportWebVitals";
+import "./fonts/B-Nazanin.ttf";
 
 const logger = createLogger();
 const reducer = combineReducers({

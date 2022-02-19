@@ -18,7 +18,7 @@ export const DUMMY_MEALS = [
   {
     id: "tablet",
     name: "تبلت",
-    description: "قروشگاه آریا",
+    description: "فروشگاه آریا",
     price: 3540000,
   },
   {

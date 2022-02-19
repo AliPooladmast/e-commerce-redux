@@ -44,12 +44,15 @@ export const addItemsToUsers = (state = initUsers, action = {}) => {
 
     case ADD_USER_ITEM: {
       const { items, dateTime } = action.payload;
-      console.log(dateTime);
       let userIndex = users.findIndex(
         (user) => user.email === currentUser.email
       );
+
+      let timedItems = items.map((item) => ({ ...item, dateTime }));
+      console.log(timedItems);
+
       let newCurrentUser = users[userIndex];
-      let updatedItems = [...newCurrentUser.ordered, ...items];
+      let updatedItems = [...newCurrentUser.ordered, ...timedItems];
       let updatedUser = {
         ...newCurrentUser,
         ordered: updatedItems,

@@ -23,7 +23,8 @@ const AvailableUsers = (props) => {
       name={item.name}
       description={item.description}
       price={item.price}
-      dateTime={newCurrentUser.dateTime}
+      dateTime={item.dateTime}
+      amount={item.amount}
     />
   ));
 

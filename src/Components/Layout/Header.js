@@ -26,16 +26,18 @@ const Header = (props) => {
     <Fragment>
       <header className={classes.header}>
         <h1>سفارش آنلاین</h1>
-        {currentUser === "" ? (
-          <SignInButton />
-        ) : (
-          <Fragment>
-            <SignOutButton />
-            <PersonalPageButton />
-            <HomePageButton />
-          </Fragment>
-        )}
-        <HeaderCartButton />
+        <div className={classes["header__buttons"]}>
+          {currentUser === "" ? (
+            <SignInButton />
+          ) : (
+            <Fragment>
+              <SignOutButton />
+              <PersonalPageButton />
+              <HomePageButton />
+            </Fragment>
+          )}
+          <HeaderCartButton />
+        </div>
       </header>
       <div className={classes["main-image"]}>
         <picture>
