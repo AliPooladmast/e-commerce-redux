@@ -1,6 +1,6 @@
 {
-  "name": "food-order-app",
-  "homepage": "https://AliPooladmast.github.io/food-order-app",
+  "name": "e-commerce-redux",
+  "homepage": "https://AliPooladmast.github.io/e-commerce-redux",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
