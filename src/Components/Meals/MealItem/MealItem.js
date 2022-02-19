@@ -1,10 +1,10 @@
 import classes from "../../../Styles/MealItem.module.css";
 import MealItemFrom from "./MealItemForm";
 import Card from "../../UI/Card";
-import pen from "../../../assets/Images/pen.jpg";
-import printer from "../../../assets/Images/printer.png";
-import projector from "../../../assets/Images/projector.jpg";
-import tablet from "../../../assets/Images/tablet.jpg";
+import pen from "../../../assets/Images/pen.webp";
+import printer from "../../../assets/Images/printer.webp";
+import projector from "../../../assets/Images/projector.webp";
+import tablet from "../../../assets/Images/tablet.webp";
 
 const MealItem = (props) => {
   const { id, name, description, price } = props;
